@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1560874088 source:e:\c++e\complexnumber\complexnumber.cpp
+	"complexnumber.h"
+	<iostream>
+
+1560801125 e:\c++e\complexnumber\complexnumber.h
+
+1560874129 source:e:\c++e\complexnumber\main.cpp
+	"complexnumber.h"
+	<iostream>
+	"complexnumber.cpp"
+
+1560874088 e:\c++e\complexnumber\complexnumber.cpp
+	"complexnumber.h"
+	<iostream>
+

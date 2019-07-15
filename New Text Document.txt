@@ -1,0 +1,108 @@
+main
+#include "complexnumber.h"
+#include<iostream>
+#include"complexnumber.cpp"
+using namespace std;
+
+int main()
+{
+    complexNumber<int> c1(4,3);
+    complexNumber<int> c2(3,8);
+    complexNumber<int> c3;
+    complexNumber<int> c4;
+    c3=c1+c2;
+    c4=c1*c2;
+    cout<<"ADD:";
+    c3.Print();
+    cout<<"Mult:";
+    c4.Print();
+    if(c1!=c2)
+    {
+
+        cout<<"Not same!!";
+    }
+    else
+    {
+        cout<<"Same";
+    }
+}
+
+.h
+#ifndef COMPLEXNUMBER_H
+#define COMPLEXNUMBER_H
+
+template<class A>
+class complexNumber
+{
+    public:
+        complexNumber();
+        complexNumber(A,A);
+        complexNumber operator+(complexNumber);
+        complexNumber operator*(complexNumber);
+        bool operator!=(complexNumber);
+        void Print();
+        virtual ~complexNumber();
+
+
+
+    protected:
+
+    private:
+        A Real,Imaginary;
+};
+
+#endif // COMPLEXNUMBER_H
+cpp
+#include "complexnumber.h"
+#include<iostream>
+using namespace std;
+template<class A>
+complexNumber<A>::complexNumber()
+{
+  Real=0;
+  Imaginary=0;
+
+}
+template<class A>
+complexNumber<A>::complexNumber(A r,A i)
+{
+    Real=r;
+    Imaginary=i;
+
+}
+template<class A>
+complexNumber<A>complexNumber<A>::operator+(complexNumber a)
+{
+    complexNumber t;
+    t.Real=Real+a.Real;
+    t.Imaginary=Imaginary+a.Imaginary;
+    return t;
+
+}
+template <class A>
+complexNumber<A>complexNumber<A>::operator*(complexNumber a)
+{
+    complexNumber t;
+    t.Real = (Real * a.Real) - (Imaginary * a.Imaginary);
+    t.Imaginary = (Real * a.Imaginary) + (Imaginary * a.Real);
+    return t;
+}
+template <class A>
+bool complexNumber<A>::operator !=(complexNumber a)
+{
+    return (Real != a.Real||Imaginary != a.Imaginary);
+}
+
+template<class A>
+void complexNumber<A>::Print()
+{
+    cout<<Real<<"+"<<Imaginary<<"i"<<endl;
+   // cout<<Imaginary<<endl;
+
+}
+
+template<class A>
+complexNumber<A>::~complexNumber()
+{
+
+}
